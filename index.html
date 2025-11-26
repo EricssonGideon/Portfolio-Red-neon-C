@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ericsson Portfolio</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- AOS Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+</head>
+<body>
+<!-- ========================= HEADER ========================= -->
+    <!-- Header -->
+    <header>
+         <!-- Logo -->
+        <a href="index.html" class="logo">Ericsson</a>
+
+        <!-- Navigation Menu -->
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="project.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="hire.html">Hire Me</a>
+        </nav>
+    </header>
+    <!-- ========================= HOME / HERO SECTION ========================= -->
+        <section class="home">
+        <div class="hero-bg"></div> <!-- Animated background -->
+        <div class="home-content" data-aos="fade-up">
+            <!-- Main Heading -->
+            <h1>Hello, I'm <span>Ericsson</span></h1>
+
+            <!-- Typing effect -->
+            <h3 class="typing-text">I'm a <span id="typed"></span></h3>
+
+            <!-- Intro text -->
+            <p>I love creating smart, user-focused solutions and exploring new technologies.
+               This portofilio showcases my journey in building websites, 
+               Python projects, and stepping into the world if Ai</p>
+          <p> I build modern, responsive websites, AI tools,
+             and interactive web applications. Check out my work and services.</p>
+            <br>
+
+            <!-- Buttons -->
+            <div class="home-buttons">
+               <pre> <a href="hire.html" class="btn">Hire Me</a>     <a href="project.html" class="btn">View Projects</a> </pre>
+            </div>
+          
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/robert-robertericsson6" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/robertericsson6" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CfaP8BP6N/?mibextid=wwXIfr" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+         <!-- Hero image -->
+        <div class="home-img" data-aos="fade-left">
+            <img src="image/main.jpg" alt="Ericsson Profile">
+        </div>
+    </section>
+
+  
+
+
+  <!-- ========================= SCRIPTS ========================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+  // Initialize AOS animation library
+  AOS.init({ duration: 1200 });
+
+  /* -------------------- TYPING ANIMATION -------------------- */
+  const roles = ["Web Developer", "AI Engineer", "Script Writer", "Web Designer"]; // array of roles to display
+  let roleIndex = 0;
+  let charIndex = 0;
+  const roleEl = document.getElementById("typed");
+
+  // Guard to avoid starting multiple parallel loops
+  let typingActive = false;
+
+  function type() {
+    // If something else started typing, don't start another
+    if (typingActive) return;
+    typingActive = true;
+
+    // Make sure we start with empty text for each new role
+    roleEl.textContent = "";
+
+    function _typeChar() {
+      if (charIndex < roles[roleIndex].length) {
+        roleEl.textContent += roles[roleIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(_typeChar, 120);
+      } else {
+        // finished typing this role
+        setTimeout(() => {
+          erase(); // start erasing after a short pause
+        }, 2000);
+      }
+    }
+
+    _typeChar();
+  }
+
+  function erase() {
+    function _eraseChar() {
+      if (charIndex > 0) {
+        // remove one char
+        charIndex--;
+        roleEl.textContent = roles[roleIndex].substring(0, charIndex);
+        setTimeout(_eraseChar, 80);
+      } else {
+        // finished erasing: move to next role and allow typing again
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingActive = false;
+        // small delay before typing next role
+        setTimeout(type, 300);
+      }
+    }
+
+    _eraseChar();
+  }
+
+  // Start when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    // Ensure element exists before starting
+    if (roleEl) setTimeout(type, 500);
+  });
+
+
+</script>
+<!-- AI Project Chatbot Floating Button -->
+<div class="chatbot-button" onclick="toggleChatbot()">
+  <i class="fa-solid fa-robot"></i>
+</div>
+
+<!-- Chatbot Window -->
+<div class="chatbot-box" id="chatbotBox" style="display:none; flex-direction:column;">
+  <div class="chatbot-header">
+      <h3>AI Project Assistant</h3>
+      <span onclick="toggleChatbot()">×</span>
+  </div>
+
+  <div class="chatbot-content" id="chatContent">
+      <div class="bot-message">
+         <div class="text">Hi Ericsson! Ask me about any project.</div>
+         <div class="timestamp">--:--</div>
+      </div>
+  </div>
+
+  <div class="chatbot-input-area">
+      <input type="text" id="userInput" placeholder="Ask about your project..." onkeydown="if(event.key==='Enter') sendMessage()">
+      <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+/* ---------- Chatbot JS (single clean script) ---------- */
+
+function toggleChatbot() {
+  const bot = document.getElementById("chatbotBox");
+  // toggle display; keep "flex" so flex-direction works
+  bot.style.display = (bot.style.display === "flex") ? "none" : "flex";
+  if (bot.style.display === "flex") {
+    // focus the input when opened
+    setTimeout(() => document.getElementById("userInput").focus(), 120);
+  }
+}
+
+// Adds a message with text and timestamp. type = "user" or "bot"
+function addMessage(txt, type) {
+  const box = document.getElementById("chatContent");
+
+  // wrapper for message (keeps your existing class names)
+  let wrapper = document.createElement("div");
+  wrapper.className = (type === "user") ? "user-message" : "bot-message";
+
+  // message text
+  let message = document.createElement("div");
+  message.className = "text";
+  message.innerText = txt;
+
+  // timestamp
+  let time = document.createElement("div");
+  time.className = "timestamp";
+  let now = new Date();
+  time.innerText = now.getHours().toString().padStart(2,"0") + ":" +
+                   now.getMinutes().toString().padStart(2,"0");
+
+  wrapper.appendChild(message);
+  wrapper.appendChild(time);
+
+  box.appendChild(wrapper);
+  // auto-scroll
+  box.scrollTop = box.scrollHeight;
+}
+
+// show typing placeholder (only one at a time)
+function showTyping() {
+  const box = document.getElementById("chatContent");
+  // avoid duplicate typing elements
+  if (document.getElementById("typing")) return;
+
+  let typing = document.createElement("div");
+  typing.id = "typing";
+  typing.className = "bot-message";
+  let dots = document.createElement("div");
+  dots.className = "text";
+  dots.innerText = "Typing";
+  let anim = document.createElement("span");
+  anim.className = "dots";
+  anim.innerText = "...";
+  dots.appendChild(anim);
+
+  let time = document.createElement("div");
+  time.className = "timestamp";
+  time.innerText = ""; // placeholder
+
+  typing.appendChild(dots);
+  typing.appendChild(time);
+
+  box.appendChild(typing);
+  box.scrollTop = box.scrollHeight;
+}
+
+// remove typing placeholder
+function removeTyping() {
+  let t = document.getElementById("typing");
+  if (t) t.remove();
+}
+
+function sendMessage() {
+  let input = document.getElementById("userInput");
+  let text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
+
+  // show typing and simulate response delay
+  showTyping();
+
+  // Simple variable delay based on message length
+  const delay = Math.min(1600 + text.length * 30, 3000);
+
+  setTimeout(() => {
+    botReply(text);
+  }, delay);
+}
+
+function botReply(q) {
+  q = q.toLowerCase();
+  let response = "";
+
+  if (q.includes("portfolio")) {
+    response = "Your Portfolio Website is a clean, modern and responsive showcase of your skills and services.";
+  } else if (q.includes("ai") || q.includes("chatbot")) {
+    response = "Your AI Chatbot uses JavaScript logic and can be upgraded later with ML or NLP.";
+  } else if (q.includes("ecommerce") || q.includes("shop")) {
+    response = "Your E-commerce project includes product UI, cart system and responsive layout.";
+  } else if (q.includes("python")) {
+    response = "Your Python projects include automation tools and backend scripts.";
+  } else {
+    response = "I don't know that yet, but you can teach me! 😊";
+  }
+
+  // remove typing placeholder and add the reply
+  removeTyping();
+  addMessage(response, "bot");
+
+  // keep chatbot open and focus input
+  const bot = document.getElementById("chatbotBox");
+  if (bot.style.display !== "flex") bot.style.display = "flex";
+  setTimeout(() => document.getElementById("userInput").focus(), 100);
+}
+
+
+</script>
+
+
+</body>
+</html>

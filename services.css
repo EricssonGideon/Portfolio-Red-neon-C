@@ -1,0 +1,175 @@
+/* ==============================================
+   Global + Match Home Page
+============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html { font-size: 62.5%; }
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ==============================================
+   Header (Copied From Home Page)
+============================================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #b74b4b;
+    
+}
+.logo:hover { transform: scale(1.1); }
+
+.navbar a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+.navbar a:hover,
+.navbar a.active {
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+/* ==============================================
+   Hero Section — Match Home Style
+============================================== */
+.hero-services {
+    min-height: 100vh;
+    padding: 9rem 9% 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-services .hero-content h1 {
+    font-size: 7rem;
+    font-weight: 700;
+}
+.hero-services .hero-content p {
+    font-size: 1.7rem;
+    max-width: 550px;
+    margin-top: 1.5rem;
+}
+
+.hero-services img {
+    width: 35vw;
+    border-radius: 2rem;
+    box-shadow: 0 0 15px #b74b4b; /* Reduced neon */
+    transition: 0.3s;
+}
+.hero-services img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+/* ==============================================
+   Services Section Cards
+============================================== */
+.services-section {
+    padding: 5rem 9% 8rem;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 4rem;
+    margin-top: 4rem;
+}
+
+.service-card {
+    background: #0d0d0d;
+    border-radius: 2rem;
+    padding: 2rem;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px #b74b4b44; /* slightly reduced neon */
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px #b74b4b;
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 12px #b74b4b55;
+}
+
+.service-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.service-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.service-content ul {
+    margin-bottom: 2rem;
+}
+.service-content ul li {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: #bbb;
+}
+
+/* ==============================================
+   Buttons — match home page
+============================================== */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #b74b4b;
+    font-weight: 600;
+    border: 2px solid #b74b4b;
+    cursor: pointer;
+    transition: 0.3s ease;
+    letter-spacing: 0.2rem;
+}
+
+.btn:hover {
+    background-color: #b74b4b;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #b74b4b;
+}
+

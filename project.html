@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ericsson Projects</title>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+</head>
+<body class="projects-page">
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">Ericsson</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="skills.html">Skills</a>
+            <a href="education.html">Education</a>
+            <a href="project.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="hire.html">Hire Me</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="projects-hero-content" data-aos="fade-up">
+            <div class="hero-text-image">
+                <!-- Text on the left -->
+                <div class="hero-text">
+                    <h1>My <span>Projects</span></h1>
+                    <p>Welcome! Here you’ll find some of the projects I’ve built — from interactive websites to AI-powered tools. Feel free to explore, click on demos, and see how I bring ideas to life.</p>
+                    <p>Explore a collection of my latest projects, featuring websites, AI tools, and interactive web applications.</p>
+    
+                    <!-- Scroll Indicators -->
+                    <div class="scroll-indicators">
+                        <div class="scroll-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="mouse-scroll">
+                            <div class="wheel"></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Image on the right -->
+                <div class="hero-image">
+                    <img src="image/project.png" alt="Projects Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Project Chatbot Floating Button -->
+<div class="chatbot-button" onclick="toggleChatbot()">
+    <i class="fa-solid fa-robot"></i>
+</div>
+
+<!-- Chatbot Window -->
+<div class="chatbot-box" id="chatbotBox">
+    <div class="chatbot-header">
+        <h3>AI Project Assistant</h3>
+        <span onclick="toggleChatbot()">×</span>
+    </div>
+
+    <div class="chatbot-content" id="chatContent">
+        <div class="bot-message">Hi Ericsson! Ask me about any project.</div>
+    </div>
+
+    <div class="chatbot-input-area">
+        <input type="text" id="userInput" placeholder="Ask about your project..." onkeydown="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+
+
+
+  
+
+<script>
+    function toggleChatbot() {
+    const bot = document.getElementById("chatbotBox");
+    bot.style.display = (bot.style.display === "flex") ? "none" : "flex";
+}
+
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let text = input.value.trim();
+    if (!text) return;
+
+    addMessage(text, "user");
+    input.value = "";
+
+    setTimeout(() => {
+        botReply(text);
+    }, 600);
+}
+
+function addMessage(txt, type) {
+    const box = document.getElementById("chatContent");
+    let div = document.createElement("div");
+    div.className = type + "-message";
+    div.innerText = txt;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+}
+
+function botReply(q) {
+    q = q.toLowerCase();
+    let response = "";
+
+    // 🔥 Customize your project descriptions here
+    if (q.includes("portfolio")) {
+        response = "Your Portfolio Website is a modern, responsive site built with HTML, CSS, and JavaScript. It showcases your skills, services, and interactive UI.";
+    }
+    else if (q.includes("ai") || q.includes("chatbot")) {
+        response = "Your AI Chatbot project uses JavaScript logic and UI design to simulate intelligent conversation. You can expand it with NLP later.";
+    }
+    else if (q.includes("ecommerce") || q.includes("shop")) {
+        response = "Your E-commerce project includes product listings, cart functionality, modern UI, and responsive design.";
+    }
+    else if (q.includes("python")) {
+        response = "Your Python projects include automation tools and small AI scripts demonstrating your backend logic abilities.";
+    }
+    else {
+        response = "I’m not sure about that one yet! But Ericsson can teach me. 😊";
+    }
+
+    addMessage(response, "bot");
+}
+
+</script>
+
+    <!-- Projects Grid -->
+    <section class="projects" data-aos="fade-up">
+        <div class="projects-grid">
+
+            <!-- Project Card 1 -->
+            <div class="project-card" data-aos="zoom-in">
+                <div class="thumb">
+                    <img src="image/portofilio.png" alt="Portfolio Website">
+                </div>
+                <div class="card-body">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern, responsive portfolio website showcasing skills, services, and projects with interactive UI.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="thumb">
+                    <img src="image/project2.jpg" alt="AI Chatbot">
+                </div>
+                <div class="card-body">
+                    <h3>AI Chatbot</h3>
+                    <p>An AI-powered chatbot for real-time assistance and dynamic interaction on websites.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="thumb">
+                    <img src="image/e-commerce.png" alt="E-commerce Website">
+                </div>
+                <div class="card-body">
+                    <h3>E-commerce Website</h3>
+                    <p>A full-featured e-commerce platform with shopping cart, payment gateway, and user dashboard.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="thumb">
+                    <img src="image/WebDevelopment.jpg" alt="Interactive Web App">
+                </div>
+                <div class="card-body">
+                    <h3>Interactive Web App</h3>
+                    <p>An interactive application with animations, dynamic content, and engaging user interactions.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="thumb">
+                    <img src="image/weather.png" alt="Weather App">
+                </div>
+                <div class="card-body">
+                    <h3>Weather App</h3>
+                    <p>A responsive weather application showing live forecasts using a public API and dynamic charts.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 6 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="thumb">
+                    <img src="image/Task-manager.jpg" alt="Task Manager">
+                </div>
+                <div class="card-body">
+                    <h3>Task Manager</h3>
+                    <p>A productivity-focused task manager app with reminders, categories, and progress tracking.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 7 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="600">
+                <div class="thumb">
+                    <img src="image/Game-JavaScript.png" alt="JavaScript Game">
+                </div>
+                <div class="card-body">
+                    <h3>JavaScript Game</h3>
+                    <p>An interactive browser game built with JavaScript, featuring animations and scoring system.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> Play</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 8 -->
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="700">
+                <div class="thumb">
+                    <img src="image/dashboard.png" alt="Data Dashboard">
+                </div>
+                <div class="card-body">
+                    <h3>Data Dashboard</h3>
+                    <p>A data analytics dashboard with charts, tables, and insights, powered by Python and APIs.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn"><i class="fa-solid fa-eye"></i> View</a>
+                        <a href="#" class="btn ghost"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Back to Home Button -->
+    <section class="projects-home-btn" data-aos="fade-up">
+        <a href="index.html" class="btn">Back to Home</a>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200 });
+    </script>
+</body>
+</html>
