@@ -12,7 +12,9 @@
 body {
     background: #000;
     color: #fff;
+    padding-top: 80px; /* adjust if needed */
 }
+
 
 /* Header */
 header {
@@ -21,11 +23,12 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background: transparent;
+    background: #000;    /* <-- change this */
     display: flex;
     justify-content: space-between;
     z-index: 1000;
 }
+
 
 .logo {
     font-size: 3rem;
@@ -209,3 +212,27 @@ header {
     color: #b74b4b;
   }
   
+  header {
+    background: #000 !important;
+    backdrop-filter: none !important;
+}
+
+header {
+    width: 100%;
+    padding: 1rem 9%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+
+    /* Apple Glass Effect */
+    background: rgba(0, 0, 0, 0.3);   /* transparent black */
+    backdrop-filter: blur(15px);      /* main blur effect */
+    -webkit-backdrop-filter: blur(15px); /* for Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle line */
+}
+body {
+    background: #000;
+}

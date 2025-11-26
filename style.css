@@ -1022,6 +1022,14 @@ body {
     color: white;
 }
 
+body header {
+    background-color: #000 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+}
+
+
 /* ==============================================
    Header (match home page)
 ============================================== */
@@ -1165,3 +1173,7 @@ section {
     .edu-header { flex-direction: column; align-items: flex-start; }
     .edu-logo { width: 40px; height: 40px; margin-bottom: 0.5rem; }
 }
+
+
+
+
