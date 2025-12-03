@@ -296,6 +296,18 @@ span { color: #b74b4b; }
     81%,100% { content: "Script Writer"; }
 }
 
+.tagline {
+    color: #b74b4b; /* bright red */
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow:
+        0 0 1px #b74b4b,
+        0 0 2px #b74b4b,
+        0 0 4px #b74b4b,
+        0 0 8px #b74b4b;
+    margin-top: 10px;
+}
 
 /* ==============================================
    Contact Page Enhancements
